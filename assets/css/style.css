@@ -9,6 +9,13 @@ body {
 a {
     color: #1c1c1c;
 }
+#about-me-container {
+}
+#esc-key {
+    border: 2px solid #1c1c1c;
+    padding: 0px 15px 0px 15px;
+    border-radius: 4px;
+}
 #repoBox {
     flex-direction: column;
 }

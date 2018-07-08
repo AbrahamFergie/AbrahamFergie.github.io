@@ -3,7 +3,7 @@ $(document).ready(function(){
         .hide()
     $("#menu")
         .hide()
-        .text("X Close")
+        .html("<div class='center'><h4>X Close</h4><h4 id='esc-key'>Esc</h4></div>")
     $("#about-me-container")
         .hide()
     $(".menu-item").hover(function(){
@@ -31,7 +31,6 @@ $(document).ready(function(){
         if($("#projects-container").children().length <= 2){
             $("#projects-container").append($("<h1>Projects</h1>"), $("<h3 id='loading'>Loading...</h3>"))
             $.get("https://api.github.com/users/abrahamfergie/repos", function(data){
-                console.log(data)
                 const projectsContainer = $("#projects-container")
                 data.forEach(repo => {
                     const row = $("<div class='row repos'>"),
@@ -61,11 +60,16 @@ $(document).ready(function(){
             $("#projects-container").fadeIn("slow")
         }
     })
-    $("#menu").click(function(){
-        $(this).hide()
+    $("#menu").click(menuEventHandler)
+    $(document).keyup(menuEventHandler)
+})
+
+function menuEventHandler(event){
+    if(event.key === "Escape" || event.handleObj.type === "click"){
+        $("#menu").hide()
         $("#projects-container").hide()
         $("#about-me-container").empty().hide()
         $("#about-me").fadeIn("slow")
         $("#projects").fadeIn("slow")
-    })
-})
+    }
+}
