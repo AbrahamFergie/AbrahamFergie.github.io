@@ -3,70 +3,57 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Project 2</title>
+    <title>Landing Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_yxf7KrybgHpkhRL0xTxgc");
+        })();
+    </script>
 </head>
 <body>
     <div class="container-fluid center">
-        <!-- <div class="jumbotron jumbo-back center"> -->
-            <!-- <h1 id="spinner" class="display-4">Welcome!</h1>
-            <div class="container-fluid center">
-                <h2 class="display-5 font-weight-bold">My name is <u id="name">Abraham Ferguson</u> and I am a Full Stack Software Engineer</h2>
-            </div> -->
-        <!-- </div> -->
-        <div class="center">
-            <h4 id="menu"></h4>
-            <!-- <button id="test">thing</button> -->
+        <img id="icon" src="http://via.placeholder.com/140x100" alt="place-holder">
+        <div id="main-menu" class="center">
             <div><h1 id="about-me" class="text-center menu-item">About Me</h1></div>
             <div><h1 id="projects" class="text-center menu-item">Projects</h1></div>
-            <div id="projects-container"></div>
-            <div id="about-me-container"></div>
         </div>
-        <!-- <div class="row"> -->
-            <!-- <div class="col-11"></div> -->
-        <!-- </div> -->
-        <!-- <div class="container-fluid"> -->
-            <!-- <div class="row center">
-                <div class="col-4 social-background">
-                    <a href="https://www.linkedin.com/in/abraham-ferguson/" target="_blank">
-                        <i class="d-inline-flex align-items-center fab fa-linkedin fa-3x social-media">
-                            <p class="p-3 social1">Linkin Profile</p>
-                        </i>
-                    </a>
-                    <a href="https://github.com/AbrahamFergie" target="_blank">
-                        <i class="d-inline-flex fab fa-github fa-3x social-media">
-                            <p class="p-3 social1">Github Profile</p>
-                        </i>
-                    </a>
-                </div>
-                <div class="col-8 center"><img id="profile-image" src="https://avatars1.githubusercontent.com/u/15825329?s=460&v=4" alt="Me"></div>
-            </div> -->
-        <!-- </div> -->
-        <!-- <div class="container-fluid center">        
-            <div class="row">
-                <div class="col-2"></div>
-                <div id="skills" class="col-8">
-                    <p><strong>Technical Skills:</strong> Javascript, NodeJS (ES6, ES7 via Babel), spa frameworks(React & React Native, Redux,Angularjs), 
-                        Webpack, Docker, Grunt, Bower, Git, UNIX, HTML, CSS, SASS/SCSS, Postgres, MySQL, RethinkDB, MongoDB, GraphQL, Express,
-                        Typescript, Web Design, C++, Python, Django, OAuth2, bCrypt, Pug, Handlebars, EJS, Sequelize, Mongoose, Linux, TDD, 
-                        Object-Oriented Programming, Functional Programming
-                    </p>
-                </div>
-                <div class="col-2"></div>
-            </div>
+        <h4 id="menu"></h4>
+        <div id="projects-container"></div>
+        <div id="about-me-container"></div>
+        <div id="social-media">
+            <a  id="social-icon1" href="#"><i class="social-icons far fa-envelope fa-2x"></i></a>
+            <a  id="social-icon2"href="https://twitter.com/abrahamFergie" target="_blank"><i class="social-icons fab fa-twitter fa-2x"></i></a>
+            <a id="social-icon3" href="https://www.linkedin.com/in/abraham-ferguson" target="_blank"><i class="social-icons fab fa-linkedin-in fa-2x"></i></a>
         </div>
-        <div id="repoBox" class="container-fluid center"></div> -->
-    </div>
-    <!-- <footer class="footer center">Email Me At &nbsp<i class="far fa-envelope fa-1x"></i> &nbspJabrahamferguson@gmail.com</footer> -->
+        <div class="social-modals" id="social-modal1">
+            <button class="btn close-modal">X</button>
+            <form id="my-form" method="post">
+                <label>Name</label>
+                <input type="text" name="Name" placeholder="Bond, James Bond" required/>
+                <label>Phone</label>
+                <input type="text" name="Phone" placeholder="555-go-getter" required=""/>
+                <label>Email</label>
+                <input type="text" name="Email" placeholder="email@onlineMailBox.com" required/>
+                <label>Message</label>
+                <textarea id="text_area" type="text" name="Message" placeholder="Dev1 saw a strange JavaScript function & asked, “What is this?”. Dev2 responded, “I don’t know. I would’ve called you, but I was in a bind"></textarea>
+                <br><br>
+                <button class="contact-send-button" onclick="sendEmail()">Send</button>
+            </form>
+        </div>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
