@@ -9,18 +9,43 @@ body {
 a {
     color: #1c1c1c;
 }
-#about-me-container {
-}
 #esc-key {
     border: 2px solid #1c1c1c;
     padding: 0px 15px 0px 15px;
     border-radius: 4px;
+}
+#icon, #social-media, #social-icon1, #social-icon2, #social-icon3 {
+    position: absolute;
+}
+#icon {
+    top: 20px;
+    left: 20px;
+}
+#my-form {
+    display: flex;
+    flex-direction: column;
 }
 #repoBox {
     flex-direction: column;
 }
 #side-bar {
     transform: rotate(90deg);
+}
+#social-media {
+    left: 20px;
+    bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 235px;
+}
+#social-icon1{
+    bottom: 75%;
+}
+#social-icon3{
+    bottom: 10%;
 }
 #name-container{
     transform-origin: left;
@@ -48,6 +73,17 @@ a {
     top: 3.5%;
     right: 3%;
     z-index: 1;
+}
+#social-modal1 {
+    position: absolute;
+    height: fit-content;
+    width: 25%;
+    top: 30%;
+    left: 39.5%;
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 100px 10px #1c1c1c;
 }
 #name {
     font-size: 1.5em;
@@ -90,6 +126,10 @@ a {
     flex-direction: column;
     height: 100%;
 }
+.close-modal {
+    position: relative;
+    left: 91%;
+}
 .footer {
     margin-top: 3rem;
     color: #fafafa;
@@ -98,10 +138,16 @@ a {
     font-size: 1.5em;
     background-image: url("https://kaggle2.blob.core.windows.net/datasets-images/1074/1939/31ad58e309363eae5e544c3746a068dc/dataset-cover.jpg");    
 }
+.item-border {
+    border-bottom: 1px solid #1c1c1c;
+}
 .jumbo-back {
     color: #fafafa;
     text-shadow: 0px 5px 10px #15DD26;
     background-image: url("https://kaggle2.blob.core.windows.net/datasets-images/1074/1939/31ad58e309363eae5e544c3746a068dc/dataset-cover.jpg");
+}
+.social-modals {
+    display: none;
 }
 .menu-item:hover {
     line-height: 1.5;
@@ -119,15 +165,29 @@ a {
     transition: .3s;
     justify-content: space-between;
 }
-.social-background {
-    background-color: #fafafa;
-    padding: 3em 2em 3em 2em;
-    border-radius: 15px;
-}
 .social1 {
     font-size: .5em;
     font-family: 'Exo 2', sans-serif;
 }
 .wrapper {
     min-height: 100%;
+}
+@media screen and (max-width: 1300px){
+    .repos {
+        flex-direction: column;
+    }
+    #icon {
+        height: 50px;
+    }
+    #social-media {
+        left: 5px;
+        height: 180px;
+    }
+    #social-modal1 {
+        z-index: 1;
+        height: 95%;
+        width: 95%;
+        top: 3%;
+        left: 3%;
+    }
 }
