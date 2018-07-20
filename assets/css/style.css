@@ -14,22 +14,24 @@ a {
     padding: 0px 15px 0px 15px;
     border-radius: 4px;
 }
-#icon, #social-media, #social-icon1, #social-icon2, #social-icon3 {
+#icon, #projects-container, #side-bar, #social-media, #social-icon1, #social-icon2, #social-icon3 {
     position: absolute;
 }
 #icon {
-    top: 20px;
-    left: 20px;
+    height: 10%;
+}
+#menu {
+    position: fixed;
+    top: 2%;
+    right: 3%;
+    z-index: 1;
 }
 #my-form {
     display: flex;
     flex-direction: column;
 }
-#repoBox {
-    flex-direction: column;
-}
-#side-bar {
-    transform: rotate(90deg);
+#name {
+    font-size: 1.5em;
 }
 #social-media {
     left: 20px;
@@ -55,7 +57,8 @@ a {
     margin: 0px 0px 0px 35px;
 }
 #projects-container{
-    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
     top: 10%;
     display: flex;
     flex-direction: column;
@@ -64,15 +67,42 @@ a {
     width: 90%;
     border-radius: 20px;
     margin-bottom: 50px;
+    margin-left: 3.7em;
     padding-bottom: 30px;
     transition-timing-function: ease-in-out;
     transition: 0.5s;
 }
-#menu {
-    position: fixed;
-    top: 3.5%;
-    right: 3%;
-    z-index: 1;
+#profile-image {
+    border-radius: 230px;
+}
+#repoBox {
+    flex-direction: column;
+}
+#side-bar {
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    height: 100%;
+    width: 8.18em;
+    padding: 0;
+}
+#social-icon1, #social-icon2, #social-icon3 {
+    font-size: 1rem;
+}
+#social-media {
+    left: 29px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 235px;
+}
+#social-icon1{
+    bottom: 75%;
+}
+#social-icon3{
+    bottom: 10%;
 }
 #social-modal1 {
     position: absolute;
@@ -84,12 +114,6 @@ a {
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 10px 100px 10px #1c1c1c;
-}
-#name {
-    font-size: 1.5em;
-}
-#profile-image {
-    border-radius: 230px
 }
 #skills {
     width: 67.5%;
@@ -118,6 +142,9 @@ a {
     50% { text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
     75% { text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black, -5px 0 black; }
     100% { text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
+}
+#text-area {
+    height: 15rem;
 }
 .center {
     display: flex;
@@ -155,7 +182,7 @@ a {
     transition: 0.3s;
 }
 .repos {
-    width: 67.5%;
+    width: 95%;
     padding: 40px 20px 40px 20px;
     margin-top: 2em;
     border-radius: 10px;
@@ -163,24 +190,40 @@ a {
     box-shadow: 0px 10px 50px #1c1c1c;
     transition-timing-function: ease-in-out;
     transition: .3s;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .social1 {
     font-size: .5em;
     font-family: 'Exo 2', sans-serif;
 }
+.social-modals {
+    display: none;
+}
 .wrapper {
     min-height: 100%;
 }
 @media screen and (max-width: 1300px){
-    .repos {
-        flex-direction: column;
+    #about-me, #projects {
+        font-size: 2.0rem;
+    }
+    #esc-key {
+        display: none;
     }
     #icon {
         height: 50px;
     }
+    #menu-close {
+        font-size: 1rem;
+    }
+    #projects-container {
+        margin-left: 0em;
+    }
+    #side-bar {
+        top: 0;
+        background-color: rgba(0,0,0,0);
+    }
     #social-media {
-        left: 5px;
+        left: 0px;
         height: 180px;
     }
     #social-modal1 {
@@ -189,5 +232,14 @@ a {
         width: 95%;
         top: 3%;
         left: 3%;
+    }
+    #social-icon1, #social-icon2, #social-icon3 {
+        font-size: 0.7rem;
+    }
+    #text-area {
+        height: 24rem;
+    }
+    .repos {
+        justify-content: center;
     }
 }

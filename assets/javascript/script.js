@@ -9,7 +9,7 @@ $(document).ready(function(){
         .hide()
     $("#menu")
         .hide()
-        .html("<div class='center'><h4>X Close</h4><h4 id='esc-key'>Esc</h4></div>")
+        .html("<div class='center'><h4 id='menu-close'>X Close</h4><h4 id='esc-key'>Esc</h4></div>")
     $("#about-me-container")
         .hide()
     $(".menu-item").hover(function(){
@@ -40,12 +40,11 @@ $(document).ready(function(){
             }
         }
     })
-    console.log(window)
     if(window.outerWidth > 768) {
         if(!$("#social-icon1").hasClass("fa-2x")){
             $("#social-icon1, #social-icon2, #social-icon3").addClass("fa-2x")
         }
-    } else {
+    } else {        
         $("#social-icon1, #social-icon2, #social-icon3").removeClass("fa-2x")
     }
     $("#about-me").click(function() {
@@ -69,9 +68,17 @@ $(document).ready(function(){
         }else {
             $("#projects-container").fadeIn("fast")
         }
+        if(window.outerWidth < 768) {
+            $("#social-media").fadeOut("fast")
+            $("#side-bar").css("height", "0%")
+        }
+    })
+    $("#icon").click(function(){
+
     })
     $("#menu").click(menuEventHandler)
     $(document).keyup(menuEventHandler)
+    $("#my-form-submit").click(sendEmail)
 
     function menuEventHandler(event){
         if(event.key === "Escape" || event.handleObj.type === "click"){
@@ -79,12 +86,23 @@ $(document).ready(function(){
             $("#about-me-container").hide()
             $("#projects-container").fadeOut("fast")
             $("#main-menu").fadeIn(900)
+            $("#side-bar").css("height", "100%")
+            window.outerWidth > 768 ? null : $("#social-media").fadeIn(900)
         }
     }
     function getRepoInfo(repos) {
         $("#projects-container").fadeIn("fast")
         if(repoNames.length <= 0) {
             $("#loading").remove()
+            $(".repos").hover(function(){
+                $(this).css({
+                    transform: "translateY(-12px)",
+                    boxShadow: "0px 5px 50px #1c1c1c"
+                })
+            }, function(){
+                $(this).css("transform", "")
+                $(this).css("box-shadow", "0px 10px 50px #1c1c1c")            
+            })
         } else {
             const repo = repos.shift()
             $.get("https://api.github.com/repos/abrahamfergie/" + repo.name, function(currentRepo){
@@ -100,17 +118,35 @@ $(document).ready(function(){
                     col3.append("<a href='" + repo.deployedURL + "' target='_blank'><u>" + "View The App</u></a>")
                 )
                 projectsContainer.append(row)
-                $(".repos").hover(function(){
-                    $(this).css({
-                        transform: "translateY(-12px)",
-                        boxShadow: "0px 5px 50px #1c1c1c"
-                    })
-                }, function(){
-                    $(this).css("transform", "")
-                    $(this).css("box-shadow", "0px 10px 50px #1c1c1c")            
-                })
                 getRepoInfo(repos)
             })
+            $("#projects-container").fadeIn("slow")
         }
+    }
+    function sendEmail(event) {
+        event.preventDefault()
+        //retrieve info from form
+        const myform = $("#my-form")
+        const service_id = "default_service"
+        const template_id = "template_xwI0gqrA"
+        myform.find("button").text("Sending...")
+        emailjs.sendForm(service_id,template_id,"my-form")
+            .then(function(){
+                alert("Sent!")
+                myform.find("button").text("Send")
+            }, function(err) {
+                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err))
+                myform.find("button").text("Send")
+            })
+    }
+})
+
+function menuEventHandler(event){
+    if(event.key === "Escape" || event.handleObj.type === "click"){
+        $("#menu").hide()
+        $("#projects-container").hide()
+        $("#about-me-container").empty().hide()
+        $("#about-me").fadeIn("slow")
+        $("#projects").fadeIn("slow")
     }
 })
