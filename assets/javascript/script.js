@@ -85,62 +85,61 @@ $(document).ready(function(){
             $("#menu").fadeOut("fast")
             $("#about-me-container").hide()
             $("#projects-container").fadeOut("fast")
-            $("#main-menu").fadeIn(900)
+            $("#main-menu").show()
             $("#side-bar").css("height", "100%")
             window.outerWidth > 768 ? null : $("#social-media").fadeIn(900)
         }
     }
-    function getRepoInfo(repos) {
-        $("#projects-container").fadeIn("fast")
-        if(repoNames.length <= 0) {
-            $("#loading").remove()
-            $(".repos").hover(function(){
-                $(this).css({
-                    transform: "translateY(-12px)",
-                    boxShadow: "0px 5px 50px #1c1c1c"
-                })
-            }, function(){
-                $(this).css("transform", "")
-                $(this).css("box-shadow", "0px 10px 50px #1c1c1c")            
-            })
-        } else {
-            const repo = repos.shift()
-            $.get("https://api.github.com/repos/abrahamfergie/" + repo.name, function(currentRepo){
-                const projectsContainer = $("#projects-container")
-                const row = $("<div class='row repos'>"),
-                col1 = $("<div class='center text-center'>"), 
-                col2 = $("<div class='center text-center'>"), 
-                col3 = $("<div class='center text-center'>")
-                row.append(
-                    col1.append("<strong>Repository Name:</strong>&nbsp" + currentRepo.name),
-                    col2.append("<strong>Description:</strong>&nbsp" + currentRepo.description),
-                    col3.append("<strong>URLS:</strong><a href='" + currentRepo.html_url + "' target='_blank'><u>" + "Check Out The Repo</u></a>"),
-                    col3.append("<a href='" + repo.deployedURL + "' target='_blank'><u>" + "View The App</u></a>")
-                )
-                projectsContainer.append(row)
-                getRepoInfo(repos)
-            })
-            $("#projects-container").fadeIn("slow")
-        }
-    }
-    function sendEmail(event) {
-        event.preventDefault()
-        //retrieve info from form
-        const myform = $("#my-form")
-        const service_id = "default_service"
-        const template_id = "template_xwI0gqrA"
-        myform.find("button").text("Sending...")
-        emailjs.sendForm(service_id,template_id,"my-form")
-            .then(function(){
-                alert("Sent!")
-                myform.find("button").text("Send")
-            }, function(err) {
-                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err))
-                myform.find("button").text("Send")
-            })
-    }
 })
-
+function getRepoInfo(repos) {
+    $("#projects-container").fadeIn("fast")
+    if(repos.length <= 0) {
+        $("#loading").remove()
+        $(".repos").hover(function(){
+            $(this).css({
+                transform: "translateY(-12px)",
+                boxShadow: "0px 5px 50px #1c1c1c"
+            })
+        }, function(){
+            $(this).css("transform", "")
+            $(this).css("box-shadow", "0px 10px 50px #1c1c1c")            
+        })
+    } else {
+        const repo = repos.shift()
+        $.get("https://api.github.com/repos/abrahamfergie/" + repo.name, function(currentRepo){
+            const projectsContainer = $("#projects-container")
+            const row = $("<div class='row repos'>"),
+            col1 = $("<div class='center text-center'>"), 
+            col2 = $("<div class='center text-center'>"), 
+            col3 = $("<div class='center text-center'>")
+            row.append(
+                col1.append("<strong>Repository Name:</strong>&nbsp" + currentRepo.name),
+                col2.append("<strong>Description:</strong>&nbsp" + currentRepo.description),
+                col3.append("<strong>URLS:</strong><a href='" + currentRepo.html_url + "' target='_blank'><u>" + "Check Out The Repo</u></a>"),
+                col3.append("<a href='" + repo.deployedURL + "' target='_blank'><u>" + "View The App</u></a>")
+            )
+            projectsContainer.append(row)
+            getRepoInfo(repos)
+        })
+        $("#projects-container").fadeIn("slow")
+    }
+}
+function sendEmail(event) {
+    event.preventDefault()
+    //retrieve info from form
+    const myform = $("#my-form")
+    const service_id = "default_service"
+    const template_id = "template_xwI0gqrA"
+    myform.find("button").text("Sending...")
+    emailjs.sendForm(service_id,template_id,"my-form")
+        .then(function(){
+            alert("Sent!")
+            myform.find("button").text("Send")
+        }, function(err) {
+            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err))
+            myform.find("button").text("Send")
+        })
+}
 function menuEventHandler(event){
     if(event.key === "Escape" || event.handleObj.type === "click"){
         $("#menu").hide()
@@ -149,4 +148,4 @@ function menuEventHandler(event){
         $("#about-me").fadeIn("slow")
         $("#projects").fadeIn("slow")
     }
-})
+}
