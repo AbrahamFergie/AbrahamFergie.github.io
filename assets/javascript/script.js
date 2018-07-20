@@ -48,20 +48,18 @@ $(document).ready(function(){
         $("#social-icon1, #social-icon2, #social-icon3").removeClass("fa-2x")
     }
     $("#about-me").click(function() {
-        $(this).hide()
-        $("#projects").hide()
-        $("#menu").fadeIn("slow")
+        $("#main-menu").fadeOut("fast")
+        $("#menu").fadeIn("fast")
         if($("#about-me-container").children().length > 1){
-            $("#about-me-container").fadeIn("slow")
+            $("#about-me-container").fadeIn(900)
         }else {
-            $("#about-me-container").append("<h3>Hello World</h3>")        
-            $("#about-me-container").fadeIn("slow")
+            $("#about-me-container").html("<h3>Hello World</h3>")        
+            $("#about-me-container").fadeIn(900)
         }
     })
     $("#projects").click(function(){
-        $(this).hide()
-        $("#about-me").hide()
-        $("#menu").fadeIn("slow")
+        $("#main-menu").fadeOut("fast")
+        $("#menu").fadeIn("fast")
         $("#projects-container").css("position", "absolute")
         $("#projects-container").css("top", "10%")
         if($("#projects-container").children().length <= 2){
@@ -151,4 +149,4 @@ function menuEventHandler(event){
         $("#about-me").fadeIn("slow")
         $("#projects").fadeIn("slow")
     }
-}
+})

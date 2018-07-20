@@ -9,8 +9,6 @@ body {
 a {
     color: #1c1c1c;
 }
-#about-me-container {
-}
 #esc-key {
     border: 2px solid #1c1c1c;
     padding: 0px 15px 0px 15px;
@@ -34,6 +32,22 @@ a {
 }
 #name {
     font-size: 1.5em;
+}
+#social-media {
+    left: 20px;
+    bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 235px;
+}
+#social-icon1{
+    bottom: 75%;
+}
+#social-icon3{
+    bottom: 10%;
 }
 #name-container{
     transform-origin: left;
@@ -139,6 +153,10 @@ a {
     flex-direction: column;
     height: 100%;
 }
+.close-modal {
+    position: relative;
+    left: 91%;
+}
 .footer {
     margin-top: 3rem;
     color: #fafafa;
@@ -147,10 +165,16 @@ a {
     font-size: 1.5em;
     background-image: url("https://kaggle2.blob.core.windows.net/datasets-images/1074/1939/31ad58e309363eae5e544c3746a068dc/dataset-cover.jpg");    
 }
+.item-border {
+    border-bottom: 1px solid #1c1c1c;
+}
 .jumbo-back {
     color: #fafafa;
     text-shadow: 0px 5px 10px #15DD26;
     background-image: url("https://kaggle2.blob.core.windows.net/datasets-images/1074/1939/31ad58e309363eae5e544c3746a068dc/dataset-cover.jpg");
+}
+.social-modals {
+    display: none;
 }
 .menu-item:hover {
     line-height: 1.5;
@@ -167,11 +191,6 @@ a {
     transition-timing-function: ease-in-out;
     transition: .3s;
     justify-content: space-around;
-}
-.social-background {
-    background-color: #fafafa;
-    padding: 3em 2em 3em 2em;
-    border-radius: 15px;
 }
 .social1 {
     font-size: .5em;
