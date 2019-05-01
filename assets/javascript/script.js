@@ -42,25 +42,17 @@ $(document).ready(function(){
         $("#side-bar").fadeOut("fast")
         $("#menu").fadeIn("slow")
         $("#about-me-container").css({"display": "flex"})
-        // if(window.outerWidth > 768){
-        //     $("#quotes").html(
-        //     `<h4><u>Quotes</u></h4>
-        //     <hr>
-        //     <img class="img img-responsive img-rounded" src="assets/images/quotes-resp-0.png" alt="">
-        //     <hr>`)
-        // }else {
-            $("#quotes").html(
-            `<h4><u>Quotes</u></h4>
+        $("#quotes").html(
+        `<h4><u>Quotes</u></h4>
+        <hr>
+        <div id="quotes-container">
+            <img class="img img-responsive" src="assets/images/quotes-resp-1-dark.png" alt="">
             <hr>
-            <div id="quotes-container">
-                <img class="img img-responsive" src="assets/images/quotes-resp-1.png" alt="">
-                <hr>
-                <img class="img img-responsive" src="assets/images/quotes-resp-2.png" alt="">
-                <hr>
-                <img class="img img-responsive" src="assets/images/quotes-resp-3.png" alt="">
-            </div>
-            <hr>`)
-        // }
+            <img class="img img-responsive" src="assets/images/quotes-resp-2-dark.png" alt="">
+            <hr>
+            <img class="img img-responsive" src="assets/images/quotes-resp-3-dark.png" alt="">
+        </div>
+        <hr>`)
     })
     const repoNames = [
         {name: "team-woz-crew", deployedURL: "https://dev-companion.herokuapp.com"}, 
