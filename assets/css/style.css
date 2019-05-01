@@ -12,13 +12,15 @@ body {
 a {
     color: #1c1c1c;
 }
-#icon, #about-me-container, #projects-container, #side-bar, #social-media, #social-icon1, #social-icon2, #social-icon3 {
+#icon, #projects-container, #side-bar, #social-media, #social-icon1, #social-icon2, #social-icon3 {
     position: absolute;
 }
 #about-me-container {
     display:  none;
+    align-items: center;
+    flex-direction: column;
     height: 85%;
-    width: 92%;
+    width: 70%;
     right: 1%;
 }
 #esc-key {
@@ -126,6 +128,16 @@ a {
     width: 6em;
     font-size: 5em;
     font-weight: 900;
+}
+#quotes {
+    width: 100%;
+}
+#quotes-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 @keyframes spin {
     from { transform: rotateY(0deg); }
@@ -253,7 +265,10 @@ a {
 }
 @media screen and (min-width: 300px) and (max-width: 499px) {
     #about-me, #projects {
-        font-size: 1.5rem;
+        font-size: 1.5rem;        
+    }
+    #about-me-container {
+        width: 95%;
     }
     #side-bar {     
         background-color: rgba(0,0,0,0);
