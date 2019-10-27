@@ -8,7 +8,7 @@ $(document).ready(function(){
         .html("<div class='center'><h4 id='menu-close'>X Close</h4><h4 id='esc-key'>Esc</h4></div>")
     $(".carousel").carousel({interval: false})
     $(".menu-item").hover(function(){
-        $(this).css("border-bottom", "2px solid #1c1c1c")
+        $(this).css("border-bottom", "2px solid #fafafa")
     }, function(){
         $(this).css("border-bottom", "")            
     })
