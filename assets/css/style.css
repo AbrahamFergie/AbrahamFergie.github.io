@@ -198,10 +198,12 @@ a {
 }
 .info-wrapper {
     flex-wrap: wrap;
-    width: 37%;
+    flex-direction: column;
+    width: auto;
 }
 .info-wrapper-name {
     flex-wrap: wrap;
+    flex-direction: column;
     width: 19em;
 }
 .item-border {
@@ -237,6 +239,7 @@ a {
 }
 .repos {
     width: 95%;
+    min-width: 400px;
     padding: 40px 20px 40px 20px;
     margin-top: 2em;
     border-radius: 10px;
@@ -283,6 +286,9 @@ a {
     #text-area {
         height: 10em;
     }
+    .repos {
+        justify-content: center;
+    }
 }
 @media screen and (min-width: 500px) and (max-width: 960px) {
     #about-me, #projects {
@@ -298,6 +304,9 @@ a {
     #text-area {
         height: 10em;
     }
+    .repos {
+        justify-content: center;
+    }
 }
 @media screen and (min-width: 975px) and (max-width: 1124px) {
     #about-me, #projects {
@@ -312,6 +321,9 @@ a {
     }
     #text-area {
         height: 15em;
+    }
+    .repos {
+        justify-content: center;
     }
 }
 @media screen and (min-width: 1125px) and (max-width: 1400px){
