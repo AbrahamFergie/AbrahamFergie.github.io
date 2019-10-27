@@ -80,7 +80,7 @@ a {
 }
 #side-bar {
     left: 0;
-    background-color: rgba(0,0,0,0.3);
+    /* background-color: rgba(0,0,0,0.3); */
     height: 100%;
     min-width: 4.5em;
     padding: 0;
@@ -198,7 +198,7 @@ a {
 }
 .info-wrapper {
     flex-wrap: wrap;
-    width: 19em;
+    width: 37%;
 }
 .info-wrapper-name {
     flex-wrap: wrap;
